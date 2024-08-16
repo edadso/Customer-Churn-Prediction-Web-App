@@ -1,0 +1,22 @@
+credentials:
+  usernames:
+    test_user:
+      email: test_user10@gmail.com
+      failed_login_attempts: 0 # Will be managed automatically
+      logged_in: False # Will be managed automatically
+      name: Test User
+      password: user123 # Will be hashed automatically
+    edadson:
+      email: emmanueldadson36@gmail.com
+      failed_login_attempts: 0 # Will be managed automatically
+      logged_in: False # Will be managed automatically
+      name: Emmanuel Dadson
+      password: a1e5j10 # Will be hashed automatically
+cookie:
+  expiry_days: 30
+  key: some_signature_key # Must be string
+  name: some_cookie_name
+pre-authorized:
+  emails:
+  - melsby@gmail.com
+  - emmanueldadson36@gmail.com
