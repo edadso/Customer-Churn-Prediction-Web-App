@@ -6,9 +6,9 @@ from streamlit_authenticator.utilities import Hasher
 
 # Set up Home page
 st.set_page_config(page_title = "Customer Churn Prediction App",
-                   page_icon = "📈",
+                   page_icon = "🔭",
                    layout = "wide")
-st.markdown("<h1 style='color: lightblue;'> 📈 CUSTOMER CHURN PREDICTION APP</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='color: lightblue;'> 🔭 CUSTOMER CHURN PREDICTION APP</h1>", unsafe_allow_html=True)
 
 # st.sidebar.markdown("""<img src = "https://th.bing.com/th/id/OIF.cHBXWEtI6X6PZcpwcf6VXg?rs=1&pid=ImgDetMain" width = "350" height = "250" />""", unsafe_allow_html = True)
 
