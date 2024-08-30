@@ -1,12 +1,19 @@
 import streamlit as st
+from streamlit_lottie import st_lottie
 import pandas as pd
-import streamlit_authenticator as stauth
 import time
-import yaml
-from yaml.loader import  SafeLoader
-from streamlit_authenticator.utilities import Hasher
-import sys
+import json
 import os
+import sys
+
+# Calculate the path you want to add
+root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+# Add it to sys.path only if it's not already there
+if root_path not in sys.path:
+    sys.path.append(root_path)
+
+# Import custom modules
+from utils import func
 
 # Calculate the path you want to add
 root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -30,7 +37,8 @@ if st.session_state["option_selected"] == "Data Understanding":
                     """
                 The dataset for prediction contains various customer attributes that can help us understand and predict customer churn.
                 Each column represents a different aspect of the customer's profile, service usage, and payment behavior.
-                The columns in our dataset are:
+                Note that these are the features the models were trained with.
+
                 #### Feature Description:
                     """
                     )
@@ -74,6 +82,7 @@ if st.session_state["option_selected"] == "Data Understanding":
 if st.session_state["option_selected"] == "Data Hub":
     st.markdown("<h1 style='color: lightblue;'> 📚 Data Hub</h1>", unsafe_allow_html=True)
     st.info(f"### *Welcome To Data Hub*")
+    st.markdown(f"#### **Uploaded data will be availbale for prediction in the predict page**") 
 
     with st.expander("## **Explore the dataset used for testing here**", expanded = False, icon = "👇"):
             df = func.load_data()
@@ -123,9 +132,14 @@ if st.session_state["option_selected"] == "Data Hub":
                 
                 # Coerce non-numeric entries in numeric columns
                 if data is not None:
-                    for col in data.select_dtypes(include = ["number"]).columns:
-                        data[col] = pd.to_numeric(data[col], errors = "coerce")
+                    data["SeniorCitizen"] = data["SeniorCitizen"].map({1: "Yes", 0: "No"})
+                    data["tenure"] = pd.to_numeric(data["tenure"], errors = "coerce")
+                    data["MonthlyCharges"] = pd.to_numeric(data["MonthlyCharges"], errors = "coerce")
+                    data["TotalCharges"] = pd.to_numeric(data["TotalCharges"], errors = "coerce")
 
+                    # Store the data in session_state
+                    st.session_state["uploaded_data"] = data
+                    
                 # Display success message
                 if data is not None and not st.session_state.data_loaded:
                     success_msg = st.empty()
@@ -163,8 +177,15 @@ if st.session_state["option_selected"] == "Data Hub":
                         st.write(data.isnull().sum())
                         st.write(f"#### Unique Values")
                         st.write(data.nunique())
-                          
+                   
             else:
                 st.info("Please upload a file to preview the data.")
+
+         
+# Load lottie
+lottie_animation = func.load_lottie("assets/Animation_data.json")
+with st.sidebar:
+    st_lottie(lottie_animation, height = 350)
+
     
     

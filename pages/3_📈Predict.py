@@ -1,14 +1,17 @@
 import streamlit as st
 import streamlit_authenticator as stauth
-import yaml
-from yaml.loader import  SafeLoader
 from streamlit_authenticator.utilities import Hasher
+from streamlit_lottie import st_lottie
+from yaml.loader import  SafeLoader
 import pandas as pd
 import numpy as np
 import datetime
 import joblib
+import yaml
+import json
 import sys
 import os
+
 
 # Calculate the path you want to add
 root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -125,16 +128,18 @@ if st.session_state["authentication_status"] is None:
         
         # Get the current date and time
         now = datetime.datetime.now()
-        formatted_time = f"Time: {now.hour:02d}:{now.minute:02d} Date: {now.date()}"
+        formatted_time = f"{now.hour:02d}:{now.minute:02d}"
+        formatted_date = f"{now.date()}"
         
         # Add relevant information to the DataFrame
-        history_df["Prediction_Time"] = formatted_time
+        history_df.insert(0, "Prediction_Date", formatted_date)
+        history_df.insert(1, "Prediction_Time", formatted_time)
         history_df["Model_used"] = st.session_state["selected_model"]
         history_df["Customer_Churn_status"] = prediction
         history_df["Probability"] = np.where(pred == 0, np.round(probability[:, 0]*100, 2), np.round(probability[:, 1]*100, 2))
-
+        
         # Save the DataFrame to a CSV file, appending to it if it already exists
-        history_df.to_csv("./data/history.csv", mode = "a", header = not os.path.exists("./data/history.csv"), index = True)
+        history_df.to_csv("./data/history.csv", mode = "a", header = not os.path.exists("./data/history.csv"), index = False)
 
         st.session_state["probability"] = probability
         st.session_state["prediction"] = prediction
@@ -224,9 +229,8 @@ elif st.session_state["authentication_status"]:
         bulk_prediction = encoder.inverse_transform(bulk_pred)
         return bulk_prediction, prob_score
 
-    def make_prediction(is_uploaded_data):
-        df = func.load_data()
-
+    def make_prediction(df, is_uploaded_data):
+        
         # Define expected feature columns
         expected_features = ["gender", "SeniorCitizen", "Partner", "Dependents", "tenure", "PhoneService", "MultipleLines",
                              "InternetService", "OnlineSecurity", "OnlineBackup", "DeviceProtection", "TechSupport", "StreamingTV",
@@ -249,17 +253,22 @@ elif st.session_state["authentication_status"]:
             
                         # Copy the original DataFrame to avoid modifying it directly
                         bulk_history_df = df.copy()
-                            
+                        
+                        # Get the current date and time
+                        now = datetime.datetime.now()
+                        formatted_date = f"{now.date()}"
+                        
                         # Add relevant information to the DataFrame
+                        bulk_history_df.insert(1, "Prediction_Date", formatted_date)
                         bulk_history_df["Model_used"] = "Gradient Boost Classifier"
-                        bulk_history_df["Customer_Churn_status"] = bulk_predict
+                        bulk_history_df["Churn"] = bulk_predict
                         bulk_history_df["Probability"] = np.where(bulk_predict == 0, np.round(probability_score[:, 0]*100, 2), np.round(probability_score[:, 1]*100, 2))
 
                         # Determine history file based on dataset source
                         history_file = "./data/uploaded_data_history.csv" if is_uploaded_data else "./data/inbuilt_data_history.csv"
                         
-                        # Save the DataFrame to a CSV file, appending to it if it already exists
-                        bulk_history_df.to_csv(history_file, mode = "a", header = not os.path.exists(history_file), index = False)
+                        # Save the DataFrame to a CSV file, overrriding already existed file
+                        bulk_history_df.to_csv(history_file, mode = "w", header = True, index = False)
 
                         st.success(f"#### Predictions made successfully.")
                     else:
@@ -279,33 +288,67 @@ elif st.session_state["authentication_status"]:
 
     def main():
         # Option to use inbuilt or uploaded data
-        data_source = st.radio("Choose a data source", ["Inbuilt Data", "Upload your data"])
-        df = None
+        data_source = st.radio("Choose a data source", ["Inbuilt Data", "Use previously uploaded data", "Upload new data"])
 
         if data_source == "Inbuilt Data":
-            make_prediction(is_uploaded_data = False)
-        else:
-            # Upload data
-            uploaded_file = st.sidebar.file_uploader("Upload Dataset", type = ["csv", "xlsx"])
 
-            if uploaded_file is not None:
-                if uploaded_file.name.endswith(".csv"):
-                    df = pd.read_csv(uploaded_file)
-                elif uploaded_file.name.endswith(".xlsx"):
-                    df = pd.read_excel(uploaded_file)
-                else:
-                    st.warning("Unsupported file type. Please upload a csv or xlsx file")
+            df = func.load_data()
+
+            # Load lottie
+            lottie_animation = func.load_lottie("assets/Animation_predict.json")
+            with st.sidebar:
+                st_lottie(lottie_animation, height = 350)
+
+            make_prediction(df, is_uploaded_data = False)
+
+        elif data_source == "Use previously uploaded data":
+            if "uploaded_data" in st.session_state:
+                df = st.session_state["uploaded_data"]
+                st.sidebar.success("### Using previously uploaded data from data page")
+
+                if make_prediction(df, is_uploaded_data = True):
+                    # Delete uploaded data from session state after successful prediction
+                    st.session_state["uploaded_data"] = None
+
+            lottie_animation = func.load_lottie("assets/Animation_predict.json")
+            with st.sidebar:
+                st_lottie(lottie_animation, height = 350)
+
+        elif data_source == "Upload new data":
                 
-                # Coerce non-numeric entries in numeric columns to NaN
-                df = df.apply(pd.to_numeric, errors='coerce', axis=1)
+                # Upload data
+                uploaded_file = st.sidebar.file_uploader("Upload Dataset", type = ["csv", "xlsx"])
 
-                make_prediction(is_uploaded_data = True)
-            else:
-                st.sidebar.warning("### Please upload a dataset and continue.")
-            return df
+                if uploaded_file is not None:
+                    if uploaded_file.name.endswith(".csv"):
+                        df = pd.read_csv(uploaded_file)
+                    elif uploaded_file.name.endswith(".xlsx"):
+                        df = pd.read_excel(uploaded_file)
+                    else:
+                        st.warning("Unsupported file type. Please upload a csv or xlsx file")
+                    
+                    # Coerce non-numeric entries in numeric columns to NaN
+                    df["SeniorCitizen"] = df["SeniorCitizen"].map({1: "Yes", 0: "No"})
+                    df["tenure"] = pd.to_numeric(df["tenure"], errors = "coerce")
+                    df["MonthlyCharges"] = pd.to_numeric(df["MonthlyCharges"], errors = "coerce")
+                    df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors = "coerce")
 
+                    make_prediction(df, is_uploaded_data = True)
+                    
+                else:
+                    st.sidebar.warning("### Please upload a dataset and continue.")
+        
+
+                right, middle, left = st.columns([2, 2, 1])
+                with left:
+                    # Load lottie
+                    lottie_animation = func.load_lottie("assets/Animation_predict.json")
+                    # with st.sidebar:
+                    st_lottie(lottie_animation, height = 350)
 
     main()
+
+    
    
 
 
