@@ -16,7 +16,7 @@ This project delivers customer churn prediction models through a user-friendly w
     - Provides an overview of the application.
     - Includes background information about the developer.
 
-<img src="assets\home_page.jpg" alt="Home Page" width="850"/>
+<img src="assets\home_page.JPG" alt="Home Page" width="850"/>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -29,8 +29,8 @@ This project delivers customer churn prediction models through a user-friendly w
     - Provides comprehensive information about the data.
     - Ensures seamless integration of uploaded data into the prediction process on the Predict Page.
 
-<img src="assets\data_page1.jpg" alt="Data Page" width="850"/>
-<img src="assets\data_page2.jpg" alt="Data Page" width="850"/>
+<img src="assets\data_page1.JPG" alt="Data Page" width="850"/>
+<img src="assets\data_page2.JPG" alt="Data Page" width="850"/>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -45,8 +45,8 @@ This project delivers customer churn prediction models through a user-friendly w
         1. **Gradient Boost Classifier:** Employed for both single and bulk predictions as the top-performing model.
         2. **Logistic Regression:** Used exclusively for single predictions.
 
-<img src="assets\predict_page1.jpg" alt="Predict Page" width="850"/>
-<img src="assets\predict_page2.jpg" alt="Predict Page" width="850"/>
+<img src="assets\predict_page1.JPG" alt="Predict Page" width="850"/>
+<img src="assets\predict_page2.JPG" alt="Predict Page" width="850"/>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -57,7 +57,7 @@ This project delivers customer churn prediction models through a user-friendly w
     - Individual predictions are added to the top of the history.
     - Bulk predictions replace existing entries to facilitate dashboard analysis.
  
-<img src="assets\history_page.jpg" alt="History Page" width="850"/>
+<img src="assets\history_page.JPG" alt="History Page" width="850"/>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -68,8 +68,8 @@ This project delivers customer churn prediction models through a user-friendly w
     - **Key Indicator Dashboard:** Showcases critical metrics through interactive visualizations.
     - Allows users to toggle between `built-in data` and `prediction history data` for display on the dashboard.
 
-<img src="assets\dashboard_page1.jpg" alt="Dashboard" width="850"/>
-<img src="assets\dashboard_page2.jpg" alt="Dashboard" width="850"/>
+<img src="assets\dashboard_page1.JPG" alt="Dashboard" width="850"/>
+<img src="assets\dashboard_page2.JPG" alt="Dashboard" width="850"/>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -96,11 +96,9 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 - [Plotly Documentation](https://plotly.com/python/): Learn how to create interactive visualizations with Plotly, which can be integrated into your Streamlit app.
 - [Deploying Streamlit Apps](https://docs.streamlit.io/streamlit-cloud/get-started): A guide on deploying your Streamlit application to the cloud, making it accessible to others.
 
-
 [Back to Table of Contents](#table-of-contents)
 
 ## Author
-
 - <img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg' alt='GitHub' height='20' style='filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); margin-right: 8px;'> [GitHub](https://github.com/edadso)
 - <img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg' alt='LinkedIn' height='20' style='filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); margin-right: 8px;'> [LinkedIn](https://www.linkedin.com/in/emmanuel-dadson)
 - <img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/medium.svg' alt='Medium' height='20' style='filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); margin-right: 8px;'> [Medium](https://medium.com/@emmanueldadson36)
