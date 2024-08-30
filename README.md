@@ -16,7 +16,7 @@ This project delivers customer churn prediction models through a user-friendly w
     - Provides an overview of the application.
     - Includes background information about the developer.
 
-<img src="assets/home_page.jpg" alt="Home Page" width="850"/>
+<img src="assets\home_page.jpg" alt="Home Page" width="850"/>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -29,8 +29,8 @@ This project delivers customer churn prediction models through a user-friendly w
     - Provides comprehensive information about the data.
     - Ensures seamless integration of uploaded data into the prediction process on the Predict Page.
 
-<img src="assets/data_page1.jpg" alt="Data Page" width="850"/>
-<img src="assets/data_page2.jpg" alt="Data Page" width="850"/>
+<img src="assets\data_page1.jpg" alt="Data Page" width="850"/>
+<img src="assets\data_page2.jpg" alt="Data Page" width="850"/>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -45,8 +45,8 @@ This project delivers customer churn prediction models through a user-friendly w
         1. **Gradient Boost Classifier:** Employed for both single and bulk predictions as the top-performing model.
         2. **Logistic Regression:** Used exclusively for single predictions.
 
-<img src="assets/predict_page1.jpg" alt="Predict Page" width="850"/>
-<img src="assets/predict_page2.jpg" alt="Predict Page" width="850"/>
+<img src="assets\predict_page1.jpg" alt="Predict Page" width="850"/>
+<img src="assets\predict_page2.jpg" alt="Predict Page" width="850"/>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -57,7 +57,7 @@ This project delivers customer churn prediction models through a user-friendly w
     - Individual predictions are added to the top of the history.
     - Bulk predictions replace existing entries to facilitate dashboard analysis.
  
-<img src="assets/history_page.jpg" alt="History Page" width="850"/>
+<img src="assets\history_page.jpg" alt="History Page" width="850"/>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -68,8 +68,8 @@ This project delivers customer churn prediction models through a user-friendly w
     - **Key Indicator Dashboard:** Showcases critical metrics through interactive visualizations.
     - Allows users to toggle between `built-in data` and `prediction history data` for display on the dashboard.
 
-<img src="assets/dashboard_page1.jpg" alt="Dashboard" width="850"/>
-<img src="assets/dashboard_page2.jpg" alt="Dashboard" width="850"/>
+<img src="assets\dashboard_page1.jpg" alt="Dashboard" width="850"/>
+<img src="assets\dashboard_page2.jpg" alt="Dashboard" width="850"/>
 
 [Back to Table of Contents](#table-of-contents)
 
