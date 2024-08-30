@@ -201,9 +201,9 @@ if st.session_state["authentication_status"] is None:
             prediction = st.session_state["prediction"]
 
             if prediction == "Yes":
-                st.warning(f"#### ❌ Customer will churn.\nAt a probability of {probability[0][1]*100:.2f}%")
+                st.warning(f"#### ❌ Customer is likely to churn.\nProbability: {probability[0][1]*100:.2f}%")
             elif prediction == "No":
-                st.success(f"#### ✅ Customer will not churn.\nAt a probability of {probability[0][0]*100:.2f}%")
+                st.success(f"#### ✅ Customer is unlikely to churn.\nProbability: {probability[0][0]*100:.2f}%")
             else:
                 st.markdown("#### No prediction made yet") 
 
