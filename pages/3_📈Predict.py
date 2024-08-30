@@ -81,10 +81,10 @@ if st.session_state["authentication_status"] is None:
         col1, col2 = st.columns(2)
 
         with col1:
-            st.selectbox("Select a model", options = ["Gradient Boost", "Logistic Regression"], key = "selected_model")
+            st.markdown("<h1 style='color: lightblue;'> 🔮 Prediction Hub</h1>", unsafe_allow_html=True)
         with col2:
-            pass
-
+            st.selectbox("Select a model", options = ["Gradient Boost", "Logistic Regression"], key = "selected_model")
+            
         if st.session_state["selected_model"] == "Gradient Boost":
             pipeline, threshold = load_gradient_boost()
         else:
@@ -191,8 +191,7 @@ if st.session_state["authentication_status"] is None:
 
 
     if __name__ == "__main__":
-        st.markdown("<h1 style='color: lightblue;'> 🔮 Prediction Hub</h1>", unsafe_allow_html=True)
-
+        
         pipeline, encoder, threshold = select_model()
 
         if pipeline and encoder and threshold:
