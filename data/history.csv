@@ -1,0 +1,5 @@
+Prediction_Date,Prediction_Time,gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges,Model_used,Customer_Churn_status,Probability
+2024-08-29,21:15,Male,Yes,Yes,Yes,30,Yes,Yes,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Two year,Yes,Electronic check,363.0,6978.0,Gradient Boost,No,90.77
+2024-08-29,21:16,Male,Yes,Yes,Yes,30,Yes,Yes,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Two year,Yes,Electronic check,363.0,6978.0,Logistic Regression,Yes,51.54
+2024-08-29,21:18,Female,Yes,Yes,Yes,10,Yes,Yes,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,Yes,Electronic check,596.0,5960.0,Gradient Boost,Yes,53.2
+2024-08-29,21:18,Female,Yes,Yes,Yes,10,Yes,Yes,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,Yes,Electronic check,596.0,5960.0,Logistic Regression,Yes,87.69
