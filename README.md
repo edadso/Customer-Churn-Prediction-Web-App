@@ -6,6 +6,7 @@ This project delivers customer churn prediction models through a user-friendly w
 - [Features](#features)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Resources](#resources)
 - [Author](#author)
 
 ## Features
@@ -83,6 +84,18 @@ This project delivers customer churn prediction models through a user-friendly w
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.<br>For major changes, please open an issue first to discuss what you would like to change.
+
+[Back to Table of Contents](#table-of-contents)
+
+## Resources
+- [Get Started with Streamlit](https://docs.streamlit.io/get-started/tutorials/create-an-app): A comprehensive guide to building your first Streamlit application.
+- [Streamlit API Reference](https://docs.streamlit.io/library/api-reference): Detailed documentation on Streamlit's API for customizing and extending your app.
+- [Streamlit Cheat Sheet](https://docs.streamlit.io/library/cheatsheet): A quick reference guide for commonly used Streamlit commands and features.
+- [Python for Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/): A resourceful book covering essential Python libraries like NumPy, Pandas, Matplotlib, and more, useful for data analysis and manipulation.
+- [Machine Learning with Scikit-Learn](https://scikit-learn.org/stable/): Official documentation for Scikit-Learn, which is invaluable for implementing and understanding machine learning models.
+- [Plotly Documentation](https://plotly.com/python/): Learn how to create interactive visualizations with Plotly, which can be integrated into your Streamlit app.
+- [Deploying Streamlit Apps](https://docs.streamlit.io/streamlit-cloud/get-started): A guide on deploying your Streamlit application to the cloud, making it accessible to others.
+
 
 [Back to Table of Contents](#table-of-contents)
 
