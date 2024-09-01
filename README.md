@@ -8,6 +8,7 @@ This project delivers customer churn prediction models through a user-friendly w
 - [Contributing](#contributing)
 - [Resources](#resources)
 - [Author](#author)
+- [Hyperlinks](#hyperlinks)
 
 ## Features
 ### 1. Home Page
@@ -106,6 +107,15 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 - <img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/gmail.svg' alt='Email' height='20' style='filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); margin-right: 8px;'> emmanueldadson36@gmail.com            
 
 [Back to Table of Contents](#table-of-contents)
+
+## Hyperlinks
+- [Published Article on Medium](https://medium.com/@emmanueldadson36/building-a-streamlit-gui-for-deploying-customer-churn-models-14c3992663ce)
+- [Streamlit Community Cloud Deployment]( https://customer-churn-predictor-app.streamlit.app/)
+- [Render Deployment](https://customer-churn-predictor-h9dc.onrender.com)
+
+[Back to Table of Contents](#table-of-contents)
+
+
 
 
 
