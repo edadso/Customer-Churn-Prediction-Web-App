@@ -24,7 +24,7 @@ This project delivers customer churn prediction models through a user-friendly w
 ### 2. Data Page
 - **Overview:** Offers insights into the data used for predictions and details customer attributes required for accurate predictions.
 - **Key Features:**
-    - Displays `built-in data` sourced from a GitHub repository, used for development and testing.
+    - Hosts data `(built-in data)` sourced from a GitHub repository, used for app development and testing.
     - Allows users to upload their own data for analysis.
     - Provides comprehensive information about the data.
     - Ensures seamless integration of uploaded data into the prediction process on the Predict Page.
@@ -66,7 +66,8 @@ This project delivers customer churn prediction models through a user-friendly w
 - **Key Features:**
     - **Exploratory Data Analysis (EDA) Dashboard:** Provides comprehensive visualizations and analyses of the data.
     - **Key Indicator Dashboard:** Showcases critical metrics through interactive visualizations.
-    - Allows users to toggle between `built-in data` and `prediction history data` for display on the dashboard.
+    - **Data Toggle:** Allows users to toggle between `built-in data` and `prediction history data` for display on the dashboard.
+    - **Dynamic Filtering and KPI Updates:** Users can filter data and update key performance indicators (KPIs) such as total monthly charges, total charges, and tenure. The dashboard also presents visualizations of churn rate, enabling users to quickly identify trends and insights.
 
 <img src="assets\dashboard_page1.JPG" alt="Dashboard" width="850"/>
 <img src="assets\dashboard_page2.JPG" alt="Dashboard" width="850"/>
