@@ -43,7 +43,9 @@ elif data_source_choice == "Prediction History":
 # Now use the `df` for dashboard based on user’s selected dashboard
 if df is not None and not df.empty:
     if st.session_state["selected_dashboard"] == "EDA Dashboard":
-        st.markdown("<h1 style='color: lightblue;'> 🔍 Exploratory Data Analysis</h1>", unsafe_allow_html=True)
+        left, middle, right = st.columns([1, 5, 1])
+        with middle:
+            st.markdown("<h1 style='color: lightblue;'> 🔍 Exploratory Data Analysis</h1>", unsafe_allow_html=True)
 
         st.write(df.head())
 
@@ -113,7 +115,9 @@ if df is not None and not df.empty:
 
     if st.session_state["selected_dashboard"] == "Analytical Dashboard":
         # Title of dashboard
-        st.markdown("<h1 style='color: lightblue;'> 💡 Churn Indicator Dashboard</h1>", unsafe_allow_html=True)
+        left, middle, right = st.columns([1, 5, 1])
+        with middle:
+            st.markdown("<h1 style='color: lightblue;'> 💡 Churn Indicator Dashboard</h1>", unsafe_allow_html=True)
 
         # Sidebar widgets
         st.sidebar.header("Filter Options")
